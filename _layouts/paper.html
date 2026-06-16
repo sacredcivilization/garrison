@@ -1,0 +1,59 @@
+---
+layout: default
+---
+
+<nav class="g-breadcrumb" aria-label="breadcrumb">
+  <a href="{{ '/' | relative_url }}">The Garrison</a>
+  <span class="g-breadcrumb-sep">/</span>
+  <a href="{{ '/papers/' | relative_url }}">Papers</a>
+  {% if page.series %}<span class="g-breadcrumb-sep">/</span>
+  <a href="{{ '/papers/' | relative_url }}#{{ page.series | slugify }}">{{ page.series }}</a>{% endif %}
+  <span class="g-breadcrumb-sep">/</span>
+  <span class="g-breadcrumb-current">{{ page.paper_id | default: 'Paper' }}</span>
+</nav>
+
+<article class="g-paper-wrap">
+  <header class="g-paper-header">
+    <div class="g-paper-header-meta">
+      <span class="badge badge-gold">{{ page.paper_id }}</span>
+      {% if page.series %}<span class="badge badge-grey">{{ page.series }}</span>{% endif %}
+      {% if page.pillar %}<span class="badge badge-steel">{{ page.pillar }}</span>{% endif %}
+      {% if page.classification %}<span class="badge badge-red">{{ page.classification }}</span>{% endif %}
+    </div>
+    <h1 class="g-paper-title-h1">{{ page.title }}</h1>
+    {% if page.subtitle %}<p class="g-paper-subtitle" style="color:var(--text-secondary);font-size:1.1rem;margin-bottom:var(--space-md)">{{ page.subtitle }}</p>{% endif %}
+    {% if page.abstract %}
+    <blockquote class="g-paper-abstract">{{ page.abstract }}</blockquote>
+    {% endif %}
+    <div style="display:flex;gap:var(--space-xl);margin-top:var(--space-xl);padding-top:var(--space-lg);border-top:1px solid var(--border-dim);flex-wrap:wrap;">
+      {% if page.date %}<div style="display:flex;flex-direction:column;gap:2px">
+        <span style="font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted)">Published</span>
+        <span style="font-size:0.85rem;color:var(--text-secondary)">{{ page.date | date: "%B %Y" }}</span>
+      </div>{% endif %}
+      {% if page.keywords %}<div style="display:flex;flex-direction:column;gap:4px">
+        <span style="font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted)">Keywords</span>
+        <div style="display:flex;gap:var(--space-xs);flex-wrap:wrap">
+          {% for kw in page.keywords %}
+          <span class="badge badge-grey">{{ kw }}</span>
+          {% endfor %}
+        </div>
+      </div>{% endif %}
+    </div>
+  </header>
+
+  <div class="g-paper-body">
+    {{ content }}
+  </div>
+
+  {% if page.nav_prev_url or page.nav_next_url %}
+  <hr class="g-divider">
+  <nav style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--space-md)">
+    {% if page.nav_prev_url %}
+    <a href="{{ page.nav_prev_url | relative_url }}" style="font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">← {{ page.nav_prev_label }}</a>
+    {% endif %}
+    {% if page.nav_next_url %}
+    <a href="{{ page.nav_next_url | relative_url }}" style="font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">{{ page.nav_next_label }} →</a>
+    {% endif %}
+  </nav>
+  {% endif %}
+</article>

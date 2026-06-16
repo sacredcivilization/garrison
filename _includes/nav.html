@@ -1,0 +1,22 @@
+<nav class="g-nav" role="navigation" aria-label="Main navigation">
+  <div class="g-nav-inner">
+
+    <a href="{{ '/' | relative_url }}" class="g-nav-brand" aria-label="The Garrison — Home">
+      <div class="g-nav-emblem" aria-hidden="true">GR</div>
+      <div class="g-nav-wordmark">
+        <span class="g-nav-name">The Garrison</span>
+        <span class="g-nav-sub">Alvid Scriptorium · Pakistan Desk</span>
+      </div>
+    </a>
+
+    <ul class="g-nav-links" role="list">
+      <li><a href="{{ '/papers/' | relative_url }}" {% if page.url contains '/papers/' %}class="active"{% endif %}>Papers</a></li>
+      <li><a href="{{ '/briefs/' | relative_url }}" {% if page.url contains '/briefs/' %}class="active"{% endif %}>Briefs</a></li>
+      <li><a href="{{ '/pillars/' | relative_url }}" {% if page.url contains '/pillars/' %}class="active"{% endif %}>Pillars</a></li>
+      <li><a href="{{ '/about/' | relative_url }}" {% if page.url == '/about/' %}class="active"{% endif %}>About</a></li>
+      <li><span class="nav-divider" aria-hidden="true"></span></li>
+      <li><a href="https://alvidscriptorium.com" class="g-nav-ecosystem" target="_blank" rel="noopener">SCRA ↗</a></li>
+    </ul>
+
+  </div>
+</nav>
