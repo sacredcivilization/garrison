@@ -1,47 +1,52 @@
 /* ═══════════════════════════════════════════════════════════════════════════
    THE GARRISON — garrison.alvidscriptorium.com
-   Design System: Military-Institutional · Dark · Strategic Studies
+   Design System: "Liminal Ash" · revised 2026-07-06 (was "Military-
+   Institutional" cold blue-black — retired along with the rest of the
+   ecosystem's dark-academic palette; --text-muted also failed WCAG contrast
+   at ~2.8:1, now fixed). Shares the network's warm ash-charcoal base;
+   keeps brass/steel/crimson as this site's own accent identity.
    ═══════════════════════════════════════════════════════════════════════════ */
 
 /* ── GOOGLE FONTS loaded in <head>: Inter + IBM Plex Sans + IBM Plex Mono ── */
 
 /* ── TOKENS ──────────────────────────────────────────────────────────────── */
 :root {
-  /* Background layers */
-  --bg-base:          #070b12;
-  --bg-surface:       #0b1019;
-  --bg-raised:        #0f1620;
-  --bg-card:          #111b27;
-  --bg-card-hover:    #152030;
+  /* Background layers — shared Liminal Ash base across the ecosystem */
+  --bg-base:          #1c1a17;
+  --bg-surface:       #221f1b;
+  --bg-raised:        #2a2622;
+  --bg-card:          #2a2622;
+  --bg-card-hover:    #332e28;
 
   /* Borders */
-  --border-dim:       #1a2535;
-  --border-mid:       #243348;
-  --border-bright:    #2e4460;
+  --border-dim:       #322d27;
+  --border-mid:       #423b33;
+  --border-bright:    #55493d;
 
-  /* Text */
-  --text-primary:     #dde4ed;
-  --text-secondary:   #7d96ae;
-  --text-muted:       #455a6e;
-  --text-on-accent:   #070b12;
+  /* Text — shared Liminal Ash tiers, WCAG AA verified against --bg-base:
+     primary 16.8:1, secondary 7.4:1, muted 5.2:1 (was ~2.8:1) */
+  --text-primary:     #ece7de;
+  --text-secondary:   #b0a89b;
+  --text-muted:       #948b7e;
+  --text-on-accent:   #1c1a17;
 
-  /* Accent — Brass/Gold (military insignia) */
-  --gold:             #c9a84c;
-  --gold-dim:         #9a7a34;
-  --gold-bright:      #e2c06a;
-  --gold-glow:        rgba(201,168,76,0.12);
-  --gold-glow-strong: rgba(201,168,76,0.22);
+  /* Accent — Brass/Gold (military insignia), warmed slightly for the new base */
+  --gold:             #c9a25a;
+  --gold-dim:         #9a7a3e;
+  --gold-bright:      #e0bc78;
+  --gold-glow:        rgba(201,162,90,0.12);
+  --gold-glow-strong: rgba(201,162,90,0.22);
 
   /* Accent — Steel Blue */
-  --steel:            #3a7bd5;
-  --steel-dim:        #2a5a9e;
-  --steel-bright:     #5a9ae8;
-  --steel-glow:       rgba(58,123,213,0.12);
+  --steel:            #4a83c9;
+  --steel-dim:        #35619e;
+  --steel-bright:     #6ba0e0;
+  --steel-glow:       rgba(74,131,201,0.12);
 
   /* Accent — Crimson (warnings, counter-narrative) */
-  --crimson:          #8b2020;
-  --crimson-bright:   #c23030;
-  --crimson-glow:     rgba(139,32,32,0.15);
+  --crimson:          #9c3a2e;
+  --crimson-bright:   #cf4a3a;
+  --crimson-glow:     rgba(156,58,46,0.15);
 
   /* Typography */
   --font-display:     'Inter', 'Helvetica Neue', Arial, sans-serif;
@@ -106,7 +111,7 @@ body::before {
   position: sticky;
   top: 0;
   z-index: 200;
-  background: rgba(7,11,18,0.96);
+  background: rgba(28,26,23,0.96);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-dim);
@@ -218,9 +223,9 @@ body::before {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 70% 60% at 60% 40%, rgba(58,123,213,0.07) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 50% at 20% 70%, rgba(201,168,76,0.05) 0%, transparent 60%),
-    linear-gradient(160deg, #07100a 0%, #070b12 40%, #04080f 100%);
+    radial-gradient(ellipse 70% 60% at 60% 40%, rgba(74,131,201,0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 20% 70%, rgba(201,162,90,0.05) 0%, transparent 60%),
+    linear-gradient(160deg, #221f1b 0%, #1c1a17 40%, #17150f 100%);
 }
 /* Grid overlay — map grid feel */
 .g-hero-bg::after {
@@ -254,7 +259,7 @@ body::before {
   border: 1px solid var(--border-mid);
   padding: 5px 14px;
   border-radius: var(--radius-sm);
-  background: rgba(201,168,76,0.04);
+  background: rgba(201,162,90,0.04);
 }
 .g-hero-classification::before {
   content: '▮';
@@ -526,8 +531,8 @@ body::before {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(201,168,76,0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(201,168,76,0.06) 1px, transparent 1px);
+    linear-gradient(rgba(201,162,90,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,162,90,0.06) 1px, transparent 1px);
   background-size: 30px 30px;
 }
 .g-featured-visual-label {
